@@ -16,6 +16,7 @@ struct databaseManager {
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
             let products = try JSONDecoder().decode(ProductsArray.self, from: data)
+            print(products)
             return products.products
         }catch{
             print("catched error",error.localizedDescription)
